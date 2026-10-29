@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071610">
+<title>اعمل لآخرتك | يوسف راضي</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{
+ --bg:#071610;--panel:#10271d;--panel2:#17392a;--gold:#e5c579;
+ --green:#68d5a0;--text:#f4f5ef;--muted:#a9bdaf;--border:#ffffff18;
+ --danger:#e8a2a2
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:radial-gradient(circle at 85% 5%,#194b35,transparent 35%),var(--bg);color:var(--text);font-family:Cairo,Tahoma,sans-serif;transition:.25s}
+body.light{--bg:#f3f0e5;--panel:#fffdf6;--panel2:#e9f0e5;--text:#183426;--muted:#607568;--border:#b9ad873d;--green:#21855b;--gold:#a37b2b}
+button,input,textarea,select{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.container{width:min(1150px,92%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);backdrop-filter:blur(15px);border-bottom:1px solid var(--border)}
+nav{min-height:70px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-size:20px;font-weight:900;color:var(--gold);white-space:nowrap}
+.logo span{color:var(--green)}
+.links{display:flex;gap:13px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.links a:hover{color:var(--gold)}
+.btn{border:1px solid var(--border);border-radius:12px;padding:10px 15px;background:var(--panel2);color:var(--text);transition:.2s}
+.btn:hover{border-color:var(--gold);transform:translateY(-1px)}
+.primary{background:linear-gradient(135deg,#ead18b,#bd9141);color:#12251a;border:0;font-weight:900}
+.green-btn{background:#1d5b40;color:#fff;border-color:#347d59}
+.danger{color:var(--danger)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:58px 0 25px}
+.badge{display:inline-block;border:1px solid #e5c57955;color:var(--gold);border-radius:50px;padding:6px 13px;font-size:12px}
+h1{font-size:clamp(35px,5.3vw,63px);line-height:1.4;margin:15px 0}
+h2{font-size:27px;margin:5px 0}
+h3{margin:8px 0}
+p{line-height:1.95;margin:8px 0}
+.gold{color:var(--gold)}
+.muted{color:var(--muted)}
+.hero-card,.card{background:var(--panel);border:1px solid var(--border);border-radius:22px;padding:21px;box-shadow:0 15px 45px #00000013;min-width:0}
+.hero-card{background:linear-gradient(145deg,#194d36,var(--panel));border-color:#e5c57935;min-height:250px}
+.moon{font-size:42px;color:var(--gold)}
+.quote{border-right:3px solid var(--gold);padding-right:13px;color:var(--gold);line-height:2}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.stat{text-align:center;padding:15px 8px;border:1px solid var(--border);border-radius:16px;background:var(--panel)}
+.stat strong{display:block;font-size:27px;color:var(--gold)}
+.stat span{font-size:12px;color:var(--muted)}
+section{padding:28px 0;scroll-margin-top:90px}
+.section-head{margin-bottom:17px}
+.kicker{font-size:12px;color:var(--gold);font-weight:bold}
+.section-head h2{font-size:29px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.icon{font-size:25px;background:#e5c57912;border:1px solid #e5c57925;width:49px;height:49px;display:grid;place-items:center;border-radius:15px}
+.card p{color:var(--muted);font-size:14px}
+.task{display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--border)}
+.task:last-child{border:0}
+.task input,.prayer input,.weekcheck input{width:19px;height:19px;accent-color:var(--green);flex-shrink:0}
+.task span{flex:1}
+.task small{display:block;color:var(--muted);font-size:11px}
+.task.done span{text-decoration:line-through;opacity:.65}
+.progress-bg{height:9px;background:var(--panel2);border-radius:20px;overflow:hidden;margin-top:15px}
+.progress{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--gold));transition:width .3s}
+.progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:7px}
+.prayer-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.prayer{background:var(--panel2);border:1px solid var(--border);border-radius:15px;padding:13px 7px;text-align:center}
+.prayer label{display:flex;flex-direction:column;align-items:center;gap:8px;font-weight:bold}
+.prayer small{font-size:10px;color:var(--muted);font-weight:normal}
+.dhikr-item{border-bottom:1px solid var(--border);padding:15px 0}
+.dhikr-item:last-child{border:0}
+.arabic{font-size:20px;line-height:2;color:var(--gold)}
+.counter-row{display:flex;align-items:center;gap:8px;margin-top:9px;flex-wrap:wrap}
+.count{font-weight:900;color:var(--green);min-width:25px;text-align:center}
+.tasbih{text-align:center;padding:25px 12px}
+.tasbih-number{font-size:58px;color:var(--gold);font-weight:900}
+.tasbih-button{display:block;margin:18px auto;width:145px;height:145px;border-radius:50%;border:2px solid #e5c57999;color:var(--gold);background:radial-gradient(circle at 30% 25%,#286847,#0b261a);font-size:21px;font-weight:900;box-shadow:0 0 0 12px #e5c5790a}
+.tasbih-button:active{transform:scale(.96)}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;min-width:0;border:1px solid var(--border);border-radius:12px;background:var(--bg);color:var(--text);padding:12px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+textarea{min-height:100px;resize:vertical}
+.formrow{display:flex;gap:9px;align-items:center}
+.formrow>*{min-width:0}
+.challenge{display:flex;gap:12px;align-items:flex-start}
+.challenge .icon{flex-shrink:0}
+.status{font-size:12px;color:var(--green);margin-top:8px}
+.note-list{display:grid;gap:9px;margin-top:14px}
+.note{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--border);border-radius:12px;overflow-wrap:anywhere}
+.note span{flex:1}
+.delete{border:0;background:none;color:var(--danger);padding:3px}
+.notice{border:1px dashed #e5c57965;border-radius:14px;padding:13px;color:var(--muted);font-size:12px;line-height:2}
+.dayquote{font-size:19px;line-height:2;color:var(--gold)}
+.weekcheck{display:flex;align-items:center;gap:9px;padding:8px 0}
+.weekcheck label{flex:1}
+.library-item{padding:13px 0;border-bottom:1px solid var(--border)}
+.library-item:last-child{border:0}
+.library-item summary{cursor:pointer;font-weight:bold}
+.library-item p{padding-right:10px}
+footer{text-align:center;margin-top:30px;padding:28px 0;border-top:1px solid var(--border);color:var(--muted);line-height:2}
+footer strong{color:var(--gold)}
+.toast{position:fixed;bottom:18px;left:15px;right:15px;max-width:390px;margin:auto;padding:12px;text-align:center;border-radius:12px;background:var(--gold);color:#10251a;font-weight:bold;opacity:0;transform:translateY(15px);transition:.2s;pointer-events:none;z-index:100}
+.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.links{display:none}.hero{grid-template-columns:1fr;padding-top:35px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.container{width:93%}nav{min-height:62px}.logo{font-size:16px}.hero{gap:18px}.grid,.two{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.prayer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.section-head h2{font-size:24px}.formrow{flex-direction:column;align-items:stretch}.tasbih-button{width:135px;height:135px}}
+</style>
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="#home" class="logo">۞ اعمل <span>لآخرتك</span></a>
+<div class="links">
+<a href="#prayer">الصلاة</a><a href="#quran">القرآن</a><a href="#today">يومك</a><a href="#adhkar">الأذكار</a><a href="#tasbih">المسبحة</a><a href="#library">المكتبة</a>
+</div>
+<button class="btn" id="themeBtn">☼ المظهر</button>
+</nav>
+</header>
+
+<main class="container" id="home">
+<div class="hero">
+<div>
+<span class="badge">✦ نية طيبة، وخطوة كل يوم</span>
+<h1>قرّب قلبك من الله،<br>واجعل للخير <span class="gold">أثرًا</span>.</h1>
+<p class="muted">مساحة تساعدك على متابعة الصلاة، وتنظيم ورد القرآن والأذكار، وتذكّر أعمال الخير. مش مطلوب الكمال؛ ابدأ بما تستطيع، وجدّد نيتك كل يوم.</p>
+<div class="actions">
+<a href="#prayer" class="btn primary">تابع صلاتك ←</a>
+<a href="#today" class="btn">ابدأ يومك 🌿</a>
+</div>
+</div>
+<div class="hero-card">
+<div class="moon">☾</div>
+<div class="kicker">رسالة اليوم</div>
+<h2 id="dailyTitle">خطوة صغيرة تصنع فرقًا</h2>
+<p id="dailyMessage">اختر عملًا صالحًا تقدر عليه اليوم، وابدأ به بإخلاص.</p>
+<div class="quote" id="dailyQuote">«أحب الأعمال إلى الله أدومها وإن قل»<br><small>متفق عليه</small></div>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><strong id="prayerStat">0/5</strong><span>صلوات تابعتها اليوم</span></div>
+<div class="stat"><strong id="doneStat">0</strong><span>أعمال أنجزتها اليوم</span></div>
+<div class="stat"><strong id="quranStat">0</strong><span>صفحات قرأتها اليوم</span></div>
+<div class="stat"><strong id="tasbihStat">0</strong><span>تسبيحات اليوم</span></div>
+</div>
+
+<section id="prayer">
+<div class="section-head"><span class="kicker">01 / رفيق الصلاة</span><h2>صلاتي أولويتي 🕌</h2><p class="muted">تابع الصلوات الخمس بنفسك، واستخدم القسم لتشجيع نفسك على أدائها في وقتها.</p></div>
+<div class="card">
+<div class="prayer-grid" id="prayerList"></div>
+<div class="progress-bg"><div class="progress" id="prayerProgress"></div></div>
+<div class="progress-label"><span>متابعة صلوات اليوم</span><span id="prayerProgressText">0 من 5</span></div>
+<p class="muted" id="prayerMessage">كل صلاة فرصة جديدة للسكينة والقرب من الله.</p>
+<div class="actions"><button class="btn" id="resetPrayer">إعادة تعيين الصلوات</button><a class="btn" href="#library">نصائح للمحافظة على الصلاة ↓</a></div>
+</div>
+</section>
+
+<section id="quran">
+<div class="section-head"><span class="kicker">02 / رحلتي مع القرآن</span><h2>وردك القرآني 📖</h2><p class="muted">حدد هدفًا يناسب وقتك، وسجّل تقدمك. القليل المستمر بداية طيبة.</p></div>
+<div class="two">
+<div class="card">
+<div class="icon">📚</div><h3>تقدّم الختمة</h3>
+<p>اكتب عدد الصفحات التي قرأتها اليوم والهدف اليومي الذي اخترته.</p>
+<label for="pagesRead">صفحات قرأتها اليوم</label>
+<input type="number" id="pagesRead" min="0" max="604" value="0">
+<label for="pagesGoal">هدفك اليومي بالصفحات</label>
+<input type="number" id="pagesGoal" min="1" max="604" value="5">
+<div class="progress-bg"><div class="progress" id="quranProgress"></div></div>
+<div class="progress-label"><span>نسبة هدف اليوم</span><span id="quranProgressText">0%</span></div>
+<p class="muted">إجمالي صفحات الختمة المسجّلة: <strong id="totalPages">0</strong> من 604</p>
+<div class="actions"><button class="btn primary" id="saveQuran">حفظ التقدم</button><button class="btn" id="resetQuran">تصفير صفحات اليوم</button></div>
+</div>
+<div class="card">
+<div class="icon">💭</div><h3>آية تدبّرت فيها</h3>
+<p>دوّن الآية أو المعنى الذي تريد تذكّره، دون أن تضغط على نفسك.</p>
+<textarea id="reflection" maxlength="1000" placeholder="الآية أو الفائدة التي أثّرت فيّ اليوم..."></textarea>
+<button class="btn primary" id="saveReflection" style="margin-top:10px">حفظ خاطرتي</button>
+<p class="muted" id="reflectionStatus">خاطرتك محفوظة على هذا الجهاز فقط.</p>
+</div>
+</div>
+</section>
+
+<section id="today">
+<div class="section-head"><span class="kicker">03 / يومك مع الله</span><h2>خطتك اليومية 🌿</h2><p class="muted">اختر الأعمال التي تناسبك، وعلّم عليها بعد إنجازها.</p></div>
+<div class="two">
+<div class="card">
+<div id="taskList"></div>
+<div class="progress-bg"><div class="progress" id="dayProgress"></div></div>
+<div class="progress-label"><span>إنجاز قائمة اليوم</span><span id="progressText">0%</span></div>
+<button class="btn" id="resetTasks" style="margin-top:15px">إعادة تعيين القائمة</button>
+</div>
+<div class="card">
+<div class="icon">🌱</div><h3>ابدأ بما تستطيع</h3>
+<p>مش لازم تعمل كل شيء مرة واحدة. اختار خطوات مناسبة ليومك، وخلي الاستمرار أهم من الكثرة.</p>
+<div class="notice">هذه القائمة للتذكير والتنظيم، وليست حكمًا على إيمانك أو صلاحك. لو قصّرت، ابدأ من جديد.</div>
+</div>
+</div>
+</section>
+
+<section id="adhkar">
+<div class="section-head"><span class="kicker">04 / الذكر والطمأنينة</span><h2>مركز الأذكار 🤍</h2><p class="muted">أذكار مختارة مع عدّادات للمتابعة.</p></div>
+<div class="two">
+<div class="card">
+<div class="icon">🌅</div><h3>أذكار الصباح</h3>
+<div class="dhikr-item"><div class="arabic">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</div><p>يمكنك تكرار الذكر ومتابعة العدد.</p><div class="counter-row"><button class="btn" data-counter="morning" data-change="-1">−</button><strong class="count" id="morningCount">0</strong><button class="btn green-btn" data-counter="morning" data-change="1">+ ذكر</button><button class="btn" data-counter="morning" data-reset="1">تصفير</button></div></div>
+<div class="dhikr-item"><div class="arabic">اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ</div><div class="counter-row"><button class="btn green-btn" data-counter="morning2" data-change="1">تمّ الذكر ✓</button><strong class="count" id="morning2Count">0</strong><button class="btn" data-counter="morning2" data-reset="1">تصفير</button></div></div>
+</div>
+<div class="card">
+<div class="icon">🌙</div><h3>أذكار المساء والاستغفار</h3>
+<div class="dhikr-item"><div class="arabic">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div><p>استغفر الله بقدر ما تستطيع.</p><div class="counter-row"><button class="btn" data-counter="evening" data-change="-1">−</button><strong class="count" id="eveningCount">0</strong><button class="btn green-btn" data-counter="evening" data-change="1">+ استغفار</button><button class="btn" data-counter="evening" data-reset="1">تصفير</button></div></div>
+<div class="dhikr-item"><div class="arabic">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا</div><div class="counter-row"><button class="btn green-btn" data-counter="evening2" data-change="1">تمّ الذكر ✓</button><strong class="count" id="evening2Count">0</strong><button class="btn" data-counter="evening2" data-reset="1">تصفير</button></div></div>
+</div>
+</div>
+<p class="notice" style="margin-top:13px">هذه عيّنة مختصرة وليست قائمة كاملة. راجع مصدرًا موثوقًا مثل «حصن المسلم» للتحقق من نصوص الأذكار وأعدادها وتخريجها قبل اعتماد ورد كامل.</p>
+</section>
+
+<section id="tasbih">
+<div class="section-head"><span class="kicker">05 / لحظات ذكر</span><h2>المسبحة الإلكترونية 📿</h2><p class="muted">اضغط للعدّ، ويمكنك التراجع أو تصفير العداد.</p></div>
+<div class="card tasbih">
+<div class="muted">عدد التسبيحات اليوم</div><div class="tasbih-number" id="tasbihCount">0</div>
+<button class="tasbih-button" id="tasbihButton">سبّح الآن<br>＋</button>
+<button class="btn" id="minusTasbih">− تراجع</button>
+<button class="btn" id="resetTasbih">تصفير العداد</button>
+<p>سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</p>
+</div>
+</section>
+
+<section id="challenge">
+<div class="section-head"><span class="kicker">06 / بصمتي للآخرة</span><h2>تحديات الخير ✨</h2><p class="muted">اختر عملًا بسيطًا، ونفّذه بنية طيبة.</p></div>
+<div class="grid">
+<div class="card challenge"><div class="icon">💛</div><div><h3>كلمة طيبة</h3><p>اشكر شخصًا أو قل كلمة ترفع معنوياته.</p><button class="btn green-btn" data-challenge="kind">أنجزت التحدي ✓</button><div class="status" id="kindStatus"></div></div></div>
+<div class="card challenge"><div class="icon">🤝</div><div><h3>مساعدة للأهل</h3><p>ساعد في البيت أو اقضِ حاجة لأحد.</p><button class="btn green-btn" data-challenge="help">أنجزت التحدي ✓</button><div class="status" id="helpStatus"></div></div></div>
+<div class="card challenge"><div class="icon">📖</div><div><h3>وقت مع القرآن</h3><p>اقرأ آيات بتدبّر ولو لدقائق قليلة.</p><button class="btn green-btn" data-challenge="quran">أنجزت التحدي ✓</button><div class="status" id="quranChallengeStatus"></div></div></div>
+<div class="card challenge"><div class="icon">📞</div><div><h3>صلة رحم</h3><p>اطمئن على قريب أو اسأل عنه.</p><button class="btn green-btn" data-challenge="family">أنجزت التحدي ✓</button><div class="status" id="familyStatus"></div></div></div>
+<div class="card challenge"><div class="icon">🧹</div><div><h3>إزالة أذى</h3><p>حافظ على نظافة مكانك أو ساعد في ترتيبه.</p><button class="btn green-btn" data-challenge="clean">أنجزت التحدي ✓</button><div class="status" id="cleanStatus"></div></div></div>
+<div class="card challenge"><div class="icon">💚</div><div><h3>صدقة أو إحسان</h3><p>ساعد بما تستطيع، ولو بخدمة أو كلمة طيبة.</p><button class="btn green-btn" data-challenge="kindness">أنجزت التحدي ✓</button><div class="status" id="kindnessStatus"></div></div></div>
+</div>
+</section>
+
+<section id="weekly">
+<div class="section-head"><span class="kicker">07 / خطوة وراء خطوة</span><h2>أهدافي الأسبوعية 📅</h2><p class="muted">اختار أهدافًا واقعية وراجعها خلال الأسبوع.</p></div>
+<div class="two">
+<div class="card">
+<h3>قائمة الأسبوع</h3>
+<div id="weeklyList"></div>
+<div class="progress-bg"><div class="progress" id="weekProgress"></div></div>
+<div class="progress-label"><span>تقدمك الأسبوعي</span><span id="weekProgressText">0%</span></div>
+</div>
+<div class="card">
+<div class="icon">🎯</div><h3>هدفي الشخصي</h3>
+<p>اكتب عادة واحدة تريد الاستمرار عليها هذا الأسبوع.</p>
+<input type="text" id="weeklyGoal" maxlength="180" placeholder="مثال: أخصص وقتًا يوميًا للقرآن">
+<button class="btn primary" id="saveWeeklyGoal" style="margin-top:10px">حفظ هدفي</button>
+<p id="weeklyGoalStatus" class="muted"></p>
+</div>
+</div>
+</section>
+
+<section id="journal">
+<div class="section-head"><span class="kicker">08 / أثر طيب</span><h2>سجل بصمتك 📝</h2><p class="muted">دوّن نية طيبة أو عملًا تريد تذكّره.</p></div>
+<div class="card">
+<form id="noteForm">
+<textarea id="noteInput" maxlength="500" placeholder="اكتب نيتك أو عملًا طيبًا تريد تذكره..." required></textarea>
+<button class="btn primary" type="submit" style="margin-top:10px">إضافة إلى سجلي ＋</button>
+</form>
+<div class="note-list" id="notesList"></div>
+</div>
+</section>
+
+<section id="library">
+<div class="section-head"><span class="kicker">09 / معرفة تذكّرك بالخير</span><h2>المكتبة الإيمانية 📚</h2><p class="muted">تذكيرات عملية ومختصرة تساعدك على بناء عادات طيبة.</p></div>
+<div class="card">
+<details class="library-item"><summary>🕌 كيف أساعد نفسي على المحافظة على الصلاة؟</summary><p>حاول ربط الصلاة بروتين يومك، وجهّز مكان الصلاة، واستخدم منبّهًا مناسبًا. خطّط لما ستفعله عند دخول الوقت، واستعن بأحد من أهلك للتذكير إذا كان ذلك مفيدًا. إذا فاتتك صلاة، فلا تستسلم؛ تعلّم ما يلزمك من مصدر موثوق وواصل المحافظة على الصلاة.</p></details>
+<details class="library-item"><summary>⏰ ماذا أفعل لو كنت أؤجّل الصلاة باستمرار؟</summary><p>ابدأ بتحديد سبب التأجيل: الانشغال، النوم، أو نسيان الوقت. عالج السبب بخطوة عملية مثل تذكير على الهاتف أو الاستعداد قبل الوقت. لا تعتمد على الحماس وحده؛ اجعل للصلاة مكانًا واضحًا في جدولك اليومي.</p></details>
+<details class="library-item"><summary>📖 كيف أبدأ علاقتي بالقرآن؟</summary><p>اختر وقتًا هادئًا، وحدد مقدارًا تستطيع الاستمرار عليه، واقرأ بتأنٍّ. استخدم تفسيرًا موثوقًا لفهم المعاني، واكتب فائدة واحدة تعلّمتها. لا تقارن تقدمك بغيرك.</p></details>
+<details class="library-item"><summary>🌱 كيف أستمر في العبادات؟</summary><p>ضع أهدافًا صغيرة وواضحة، واربطها بعادة يومية ثابتة. راجع تقدمك من غير قسوة على نفسك، وعدّل هدفك إذا كان أكبر من وقتك أو قدرتك. اطلب العون من الله واستعن بشخص تثق به.</p></details>
+<details class="library-item"><summary>🤍 ماذا أفعل عندما أشعر بالفتور؟</summary><p>خفّف الأهداف الإضافية وركّز على الفرائض، وخذ وقتًا لمراجعة ما يعيقك. استمر في الدعاء وطلب العلم من مصادر موثوقة، ولا تجعل يومًا صعبًا سببًا للتوقف عن المحاولة.</p></details>
+<details class="library-item"><summary>📚 كيف أتحقق من حديث أو ذكر؟</summary><p>ابحث عن النص في مصدر حديثي موثوق، وتحقق من اللفظ ودرجة الحديث والسياق. لا تنشر نصًا منسوبًا للنبي ﷺ قبل التثبت منه، واستشر أهل العلم عند الحاجة.</p></details>
+<details class="library-item"><summary>💛 كيف يكون لي أثر طيب في يومي؟</summary><p>ابدأ من محيطك: الإحسان إلى الأهل، والصدق، واحترام الآخرين، ومساعدة المحتاج بما تستطيع، وحفظ حقوق الناس. ليس كل عمل صالح يحتاج إلى مال أو وقت طويل.</p></details>
+<details class="library-item"><summary>🌙 كيف أستعد ليوم جديد؟</summary><p>قبل النوم، راجع يومك بهدوء، واشكر الله على ما تيسّر، واختر نية أو هدفًا بسيطًا للغد. نظّم وقت نومك قدر الإمكان حتى تستطيع القيام بمسؤولياتك وعباداتك.</p></details>
+</div>
+</section>
+
+<section>
+<div class="notice"><strong>مهم:</strong> الموقع وسيلة للتذكير والتنظيم وليس جهة إفتاء. راجع المصادر الشرعية الموثوقة في النصوص والأحكام. بيانات النسخة الحالية محفوظة داخل المتصفح على الجهاز نفسه؛ لا يوجد تسجيل حساب أو مزامنة بين الأجهزة.</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<div style="font-size:25px;color:var(--gold)">۞ اعمل لآخرتك</div>
+<div>كل يوم فرصة جديدة لعمل الخير.</div>
+<div>فكرة وتطوير <strong>يوسف راضي</strong> © <span id="year"></span></div>
+<small>اللهم أعنّا على ذكرك وشكرك وحسن عبادتك.</small>
+</div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const STORE='amalAkhira_merged_v2';
+const prayerNames=['الفجر','الظهر','العصر','المغرب','العشاء'];
+const taskData=[
+ ['quran','قراءة شيء من القرآن','ولو آيات قليلة'],
+ ['adhkar','أذكار الصباح أو المساء','اختر وقتًا مناسبًا'],
+ ['family','برّ الوالدين أو مساعدة الأهل','عمل بسيط بمحبة'],
+ ['kindness','كلمة طيبة أو إحسان','اترك أثرًا جميلًا'],
+ ['learn','تعلّم شيء نافع','علم أو مهارة مفيدة'],
+ ['reflect','مراجعة يومك وتجديد النية','خطوة صغيرة للغد']
+];
+const weeklyData=[
+ ['prayer','الاهتمام بالصلوات الخمس'],
+ ['quran','قراءة القرآن بانتظام'],
+ ['adhkar','المحافظة على ورد من الذكر'],
+ ['family','تخصيص وقت للأهل'],
+ ['charity','عمل خير أو إحسان'],
+ ['learn','تعلّم شيء نافع']
+];
+function fresh(){
+ return {
+  date:today(),prayers:{},tasks:{},dhikr:{morning:0,morning2:0,evening:0,evening2:0},
+  tasbih:0,challenges:{},notes:[],pagesToday:0,pagesTotal:0,pagesGoal:5,
+  reflection:'',weekKey:weekKey(),weekly:{},weeklyGoal:'',theme:'dark'
+ };
+}
+function weekKey(){
+ const d=new Date();d.setHours(0,0,0,0);
+ const day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);
+ return todayDate(d);
+}
+function todayDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function load(){
+ try{
+  const old=JSON.parse(localStorage.getItem(STORE));
+  if(old)return {...fresh(),...old};
+ }catch(e){}
+ return fresh();
+}
+let state=load();
+function save(){
+ try{localStorage.setItem(STORE,JSON.stringify(state))}
+ catch(e){showToast('تعذر الحفظ في المتصفح. تأكد من مساحة التخزين.')}
+ renderStats();
+}
+function rollover(){
+ if(state.date!==today()){
+  state.date=today();state.prayers={};state.tasks={};
+  state.dhikr={morning:0,morning2:0,evening:0,evening2:0};
+  state.tasbih=0;state.challenges={};state.pagesToday=0;state.reflection='';
+ }
+ if(state.weekKey!==weekKey()){
+  state.weekKey=weekKey();state.weekly={};state.weeklyGoal='';
+ }
+}
+function showToast(message){
+ const el=$('#toast');el.textContent=message;el.classList.add('show');
+ clearTimeout(showToast.timer);
+ showToast.timer=setTimeout(()=>el.classList.remove('show'),2300);
+}
+function el(tag,cls,text){
+ const node=document.createElement(tag);
+ if(cls)node.className=cls;
+ if(text!==undefined)node.textContent=text;
+ return node;
+}
+function renderPrayers(){
+ const root=$('#prayerList');root.innerHTML='';
+ prayerNames.forEach((name,i)=>{
+  const box=el('div','prayer');
+  const label=el('label');
+  const check=el('input');check.type='checkbox';check.checked=!!state.prayers[i];
+  check.addEventListener('change',()=>{
+   state.prayers[i]=check.checked;save();renderPrayers();
+   showToast(check.checked?'تم تسجيل الصلاة، تقبّل الله منك 🌿':'تم تحديث المتابعة');
+  });
+  label.append(check,el('span','',name),el('small','',i===0?'الفجر':i===1?'الظهر':i===2?'العصر':i===3?'المغرب':'العشاء'));
+  box.append(label);root.append(box);
+ });
+ const count=prayerNames.filter((_,i)=>state.prayers[i]).length;
+ $('#prayerProgress').style.width=count/5*100+'%';
+ $('#prayerProgressText').textContent=count+' من 5';
+ $('#prayerMessage').textContent=count===5?'ما شاء الله، تابعت الصلوات الخمس اليوم. تقبّل الله منك.':count===0?'ابدأ بمتابعة صلاتك، وكل صلاة فرصة جديدة.':'أحسنت، واصل المحافظة على الصلاة فيما تبقّى من يومك.';
+}
+function renderTasks(){
+ const root=$('#taskList');root.innerHTML='';
+ taskData.forEach(([id,title,sub])=>{
+  const label=el('label','task'+(state.tasks[id]?' done':''));
+  const check=el('input');check.type='checkbox';check.checked=!!state.tasks[id];
+  check.addEventListener('change',()=>{state.tasks[id]=check.checked;save();renderTasks()});
+  const span=el('span');span.append(el('strong','',title),el('small','',sub));
+  label.append(check,span);root.append(label);
+ });
+ const done=taskData.filter(t=>state.tasks[t[0]]).length;
+ const pct=Math.round(done/taskData.length*100);
+ $('#dayProgress').style.width=pct+'%';$('#progressText').textContent=pct+'%';
+}
+function renderDhikr(){
+ ['morning','morning2','evening','evening2'].forEach(id=>$('#'+id+'Count').textContent=state.dhikr[id]||0);
+}
+function renderChallenges(){
+ const ids={kind:'kindStatus',help:'helpStatus',quran:'quranChallengeStatus',family:'familyStatus',clean:'cleanStatus',kindness:'kindnessStatus'};
+ Object.entries(ids).forEach(([id,statusId])=>{
+  const btn=$('[data-challenge="'+id+'"]');
+  $('#'+statusId).textContent=state.challenges[id]?'تم تسجيل إنجازك، تقبّل الله منك 🌿':'';
+  if(btn)btn.textContent=state.challenges[id]?'تم الإنجاز ✓':'أنجزت التحدي ✓';
+ });
+}
+function renderNotes(){
+ const root=$('#notesList');root.innerHTML='';
+ if(!state.notes.length){root.append(el('div','muted','لم تسجّل بصمات بعد. ابدأ بأول نية طيبة 🌱'));return}
+ state.notes.forEach((note,index)=>{
+  const row=el('div','note');
+  row.append(el('span','', '✦ '+note));
+  const del=el('button','delete','حذف');del.type='button';del.setAttribute('aria-label','حذف الملاحظة');
+  del.onclick=()=>{state.notes.splice(index,1);save();renderNotes()};
+  row.append(del);root.append(row);
+ });
+}
+function renderQuran(){
+ $('#pagesRead').value=state.pagesToday||0;
+ $('#pagesGoal').value=state.pagesGoal||5;
+ $('#totalPages').textContent=state.pagesTotal||0;
+ const pct=Math.min(100,Math.round((state.pagesToday||0)/Math.max(1,state.pagesGoal||5)*100));
+ $('#quranProgress').style.width=pct+'%';$('#quranProgressText').textContent=pct+'%';
+ $('#reflection').value=state.reflection||'';
+}
+function renderWeekly(){
+ const root=$('#weeklyList');root.innerHTML='';
+ weeklyData.forEach(([id,title])=>{
+  const row=el('div','weekcheck');const check=el('input');check.type='checkbox';check.checked=!!state.weekly[id];
+  check.addEventListener('change',()=>{state.weekly[id]=check.checked;save();renderWeekly()});
+  row.append(check,el('label','',title));root.append(row);
+ });
+ const n=weeklyData.filter(x=>state.weekly[x[0]]).length;
+ const pct=Math.round(n/weeklyData.length*100);
+ $('#weekProgress').style.width=pct+'%';$('#weekProgressText').textContent=pct+'%';
+ $('#weeklyGoal').value=state.weeklyGoal||'';
+}
+function renderStats(){
+ if(!$('#doneStat'))return;
+ $('#prayerStat').textContent=prayerNames.filter((_,i)=>state.prayers[i]).length+'/5';
+ $('#doneStat').textContent=taskData.filter(t=>state.tasks[t[0]]).length;
+ $('#quranStat').textContent=state.pagesToday||0;
+ $('#tasbihStat').textContent=state.tasbih||0;
+ $('#tasbihCount').textContent=state.tasbih||0;
+}
+document.addEventListener('click',e=>{
+ const b=e.target.closest('[data-counter]');
+ if(b){
+  const id=b.dataset.counter;
+  state.dhikr[id]=b.dataset.reset?0:Math.max(0,(state.dhikr[id]||0)+Number(b.dataset.change||0));
+  renderDhikr();save();
+ }
+ const c=e.target.closest('[data-challenge]');
+ if(c){
+  const id=c.dataset.challenge;state.challenges[id]=!state.challenges[id];
+  renderChallenges();save();
+  showToast(state.challenges[id]?'سجّلت إنجازك، تقبّل الله منك':'تم تحديث التحدي');
+ }
+});
+$('#tasbihButton').onclick=()=>{state.tasbih=(state.tasbih||0)+1;save()};
+$('#minusTasbih').onclick=()=>{state.tasbih=Math.max(0,(state.tasbih||0)-1);save()};
+$('#resetTasbih').onclick=()=>{if(confirm('هل تريد تصفير عداد التسبيح؟')){state.tasbih=0;save();showToast('تم تصفير العداد')}};
+$('#resetPrayer').onclick=()=>{if(confirm('هل تريد إعادة تعيين متابعة صلوات اليوم؟')){state.prayers={};save();renderPrayers()}};
+$('#resetTasks').onclick=()=>{if(confirm('هل تريد إعادة تعيين قائمة اليوم؟')){state.tasks={};save();renderTasks()}};
+$('#saveQuran').onclick=()=>{
+ const pages=Math.max(0,Math.min(604,Number($('#pagesRead').value)||0));
+ const goal=Math.max(1,Math.min(604,Number($('#pagesGoal').value)||5));
+ const delta=pages-(state.pagesToday||0);
+ state.pagesTotal=Math.max(0,Math.min(604,(state.pagesTotal||0)+delta));
+ state.pagesToday=pages;state.pagesGoal=goal;
+ save();renderQuran();showToast('تم حفظ تقدمك في القرآن');
+};
+$('#resetQuran').onclick=()=>{
+ if(confirm('تصفير صفحات اليوم فقط؟')){
+  state.pagesTotal=Math.max(0,(state.pagesTotal||0)-(state.pagesToday||0));
+  state.pagesToday=0;save();renderQuran();
+ }
+};
+$('#saveReflection').onclick=()=>{
+ state.reflection=$('#reflection').value.trim();save();
+ $('#reflectionStatus').textContent='تم حفظ خاطرتك على هذا الجهاز.';
+ showToast('تم حفظ خاطرتك');
+};
+$('#noteForm').addEventListener('submit',e=>{
+ e.preventDefault();const value=$('#noteInput').value.trim();if(!value)return;
+ state.notes.push(value);$('#noteInput').value='';save();renderNotes();showToast('تمت إضافة بصمتك ✨');
+});
+$('#saveWeeklyGoal').onclick=()=>{
+ state.weeklyGoal=$('#weeklyGoal').value.trim();save();
+ $('#weeklyGoalStatus').textContent=state.weeklyGoal?'تم حفظ هدفك لهذا الأسبوع.':'اكتب هدفك أولًا.';
+ showToast('تم حفظ الهدف الأسبوعي');
+};
+$('#themeBtn').onclick=()=>{
+ document.body.classList.toggle('light');
+ state.theme=document.body.classList.contains('light')?'light':'dark';
+ $('#themeBtn').textContent=state.theme==='light'?'☾ الوضع الداكن':'☼ المظهر';
+ save();
+};
+const messages=[
+ ['النية الطيبة','ابدأ يومك بنية خير، وجدّد نيتك فيما تستطيع.','«إنما الأعمال بالنيات»','متفق عليه'],
+ ['الاستمرار','مش مطلوب منك الكمال؛ خذ خطوة صغيرة واستمر.','«أحب الأعمال إلى الله أدومها وإن قل»','متفق عليه'],
+ ['الإحسان','اترك أثرًا طيبًا في يوم شخص آخر، ولو بكلمة.','«والكلمة الطيبة صدقة»','متفق عليه'],
+ ['القرآن','اجعل لك نصيبًا من القرآن اليوم، ولو قليلًا.','اقرأ بتدبّر وخذ وقتك في فهم المعنى.','تذكير يومي'],
+ ['الامتنان','تذكّر نعمة تشكر الله عليها اليوم.','«لئن شكرتم لأزيدنكم»','سورة إبراهيم: 7']
+];
+function initDailyMessage(){
+ const index=Math.floor((new Date(today()).getTime()/86400000))%messages.length;
+ const m=messages[index];
+ $('#dailyTitle').textContent=m[0];$('#dailyMessage').textContent=m[1];
+ $('#dailyQuote').replaceChildren();
+ $('#dailyQuote').append(document.createTextNode('«'+m[2]+'»'));
+ $('#dailyQuote').append(document.createElement('br'));
+ const small=el('small','',m[3]);$('#dailyQuote').append(small);
+}
+rollover();
+document.body.classList.toggle('light',state.theme==='light');
+$('#themeBtn').textContent=state.theme==='light'?'☾ الوضع الداكن':'☼ المظهر';
+$('#year').textContent=new Date().getFullYear();
+initDailyMessage();
+renderPrayers();renderTasks();renderDhikr();renderChallenges();
+renderNotes();renderQuran();renderWeekly();renderStats();
+save();
+</script>
+</body>
+</html>
